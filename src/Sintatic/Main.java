@@ -97,14 +97,41 @@ public class Main {
 					"--------------------------------------------------------------------------------------------------------------------------------------");
 		}
 
-		// add final symbol to String with valid tokens
-		validString += "°";
+		//cadena valida
+		//validString = "a*a+b(a+b)+a";
+
+		//cadena valida
+		//validString = "a";
+
+		//cadena valida
+		//validString = "(a)";
+
+		//cadena valida
+		//validString = "(a+a)";
+		
+		//cadena valida
+		//validString = "a*a";
+
+		//cadena invalida (simbolo no valido) 
+		//validString = "a*a+c(a+b)+a";
+
+		//cadena invalida (dos operadores juntos) 
+		//validString = "a**a+c(a+b)+a";
+
+		//cadena invalida (parentesis no abierto) 
+		//validString = "a*a+a+b)+a";
+
+		//cadena invalida (parentesis no cerrado) 
+		//validString = "a*a+b(a+b+a";
+
 		System.out.println(validString);
 		// analize with Sintatic the string
 		Analizer parser = new Analizer(validString);
-		if (parser.S()) {
+		if (parser.E()) {
+			System.out.println();
 			System.out.println("The string \"" + validString + "\" belongs to the grammar (language).");
 		} else {
+			System.out.println();
 			System.out.println("The string \"" + validString + "\" does not belong to the grammar (language).");
 			parser.syntaxError();
 		}
